@@ -21,3 +21,7 @@ So you're left with two options:
 ## Tests so from
 
 At the moment the examples show mocking calls made to the [Pokemon API](https://pokeapi.co/)
+
+## TODO
+
+Add [JSON server](https://github.com/typicode/json-server)
