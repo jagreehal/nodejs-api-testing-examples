@@ -6,11 +6,11 @@ e.g. browser -> [API -> external service]
 
 ## Testing Examples
 
-There are examples for running tests using Jest, Cypress and Playwright.
+There are examples for running tests using Jest, Nock, Cypress and Playwright.
 
 ## TL;DR
 
-Cypress and Playwright can't be used as they test at the browser level and so cannot intercept calls node from the backend.
+Cypress and Playwright alone can't be used as they test at the browser level and so cannot intercept calls node from the backend.
 
 So you're left with two options:
 
