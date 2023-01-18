@@ -20,11 +20,34 @@ export function setPokemonName(id, name?: string): Pokemon {
   return updatedPokemon;
 }
 
+function makeSwapiCall(id: number) {
+  return new Promise((resolve, reject) => {
+    //https://swapi.dev/api/people/1
+    https
+      .get(`https://swapi.dev/api/people/${id}`, (res) => {
+        let data = '';
+        res.on('data', (chunk) => {
+          data += chunk;
+        });
+        res.on('end', () => {
+          resolve(JSON.parse(data));
+        });
+      })
+      .on('error', (err) => {
+        reject(err);
+      });
+  });
+}
+
 export function getPokemonName(id: number): Promise<Pokemon | undefined> {
   return new Promise((resolve, reject) => {
     if (pokemonCache.has(id)) {
       return resolve(pokemonCache.get(id));
     }
+
+    // uncommenting the line below will cause msw to error
+    // makeSwapiCall(id);
+
     https
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`, (res) => {
         let data = '';
