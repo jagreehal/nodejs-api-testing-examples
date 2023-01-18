@@ -4,11 +4,12 @@
   "description": "Examples of how to test node.js APIs",
   "main": "dist/index.js",
   "scripts": {
+    "build":"tsc",
     "start": "node dist/index.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "ts-node-dev  --inspect --no-notify --transpile-only --respawn -- src/index.ts",
-    "lint": "eslint --ext .js,.ts .",
+    "lint": "eslint --ext .js,.ts ./src",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "jest",
     "test:cypress": "start-server-and-test dev http://localhost:5000 cypress:run",
