@@ -1,4 +1,9 @@
 module.exports = {
   preset: 'ts-jest',
-  testMatch: ['**/tests/jest-supertest-examples/*.test.ts'],
+  testMatch: ['**/*.test.ts'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/dist/',
+    '/playwright-test-examples/',
+  ],
 };

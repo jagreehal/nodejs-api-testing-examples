@@ -1,16 +1,16 @@
 import supertest from 'supertest';
 import { expect, jest, it, describe } from '@jest/globals';
-import { Pokemon } from '../../pokemon';
+import { Pokemon } from './pokemon';
 
 const getPokemonName = jest.fn();
-jest.mock('../../pokemon', () => {
-  const original: any = jest.requireActual('../../pokemon');
+jest.mock('./pokemon', () => {
+  const original: any = jest.requireActual('./pokemon');
   original.getPokemonName = getPokemonName;
   return original;
 });
 
 // has to be after mock
-import { app } from '../../app';
+import { app } from './app';
 const api = supertest(app);
 
 describe('GET /pokemon/:id', () => {
