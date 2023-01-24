@@ -18,8 +18,8 @@ export const handlers = [
 // set up server
 export const server = setupServer(...handlers);
 
-import { app } from '../../app';
-import { Pokemon } from '../../pokemon';
+import { app } from './app';
+import { Pokemon } from './pokemon';
 
 const api = supertest(app);
 

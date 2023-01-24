@@ -1,9 +1,9 @@
 import supertest from 'supertest';
 import { expect, describe, it, afterEach } from '@jest/globals';
-import { app } from '../../app';
+import { app } from './app';
 
 import nock from 'nock';
-import { Pokemon } from '../../pokemon';
+import { Pokemon } from './pokemon';
 
 const api = supertest(app);
 
