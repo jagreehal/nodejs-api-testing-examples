@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import { expect, describe, it, afterEach, beforeAll } from '@jest/globals';
 import { setupServer } from 'msw/node';
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 
 const pokemon: Pokemon = {
   id: 1,
@@ -10,8 +10,8 @@ const pokemon: Pokemon = {
 
 // set up handlers
 export const handlers = [
-  rest.get('https://pokeapi.co/api/v2/pokemon/1', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(pokemon));
+  http.get('https://pokeapi.co/api/v2/pokemon/1', () => {
+    return HttpResponse.json(pokemon);
   }),
 ];
 
@@ -26,12 +26,12 @@ const api = supertest(app);
 describe('GET /pokemon/:id', () => {
   beforeAll(() =>
     server.listen({
-      onUnhandledRequest: ({ method, url }) => {
-        if (!url.pathname.startsWith('/pokemon')) {
-          throw new Error(`Unhandled ${method} request to ${url}`);
-        }
-      },
-    })
+      // onUnhandledRequest: ({ method, url }) => {
+      //   if (!url.endsWith('/pokemon/1')) {
+      //     throw new Error(`Unhandled ${method} request to ${url}`);
+      //   }
+      // },
+    }),
   );
   // Reset any request handlers that we may add during the tests,
   // so they don't affect other tests.

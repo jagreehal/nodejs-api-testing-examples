@@ -4,6 +4,7 @@ import { Pokemon } from './pokemon';
 
 const getPokemonName = jest.fn();
 jest.mock('./pokemon', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const original: any = jest.requireActual('./pokemon');
   original.getPokemonName = getPokemonName;
   return original;

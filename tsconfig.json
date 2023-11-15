@@ -10,10 +10,10 @@
     "noEmitOnError": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "types": ["cypress", "node", "jest"],
+    "types": ["node", "jest"],
     "allowJs": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "cypress/**/*.ts", "jest.setup.ts"],
+  "include": ["src", "jest.setup.ts"],
   "exclude": ["node_modules", "dist"]
 }

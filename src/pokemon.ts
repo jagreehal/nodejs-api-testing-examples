@@ -20,6 +20,7 @@ export function setPokemonName(id, name?: string): Pokemon {
   return updatedPokemon;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function makeSwapiCall(id: number) {
   return new Promise((resolve, reject) => {
     //https://swapi.dev/api/people/1
