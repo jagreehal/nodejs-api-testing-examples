@@ -12,7 +12,10 @@
     "esModuleInterop": true,
     "types": ["node", "jest"],
     "allowJs": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src", "jest.setup.ts"],
   "exclude": ["node_modules", "dist"]
